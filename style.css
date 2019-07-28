@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#main-container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 200px;
+}
+.content{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.btn, #lps, #DOM{
+    background-color:lightblue;
+    height: 100px;
+    width: 200px;
+}
+.loops-wrapper {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+#Loops, #DOMM {
+    padding: 30px;
+    margin: 40px;
+    border: 1px solid black;
+    border-radius: 25px;
+}
+p {
+    margin: 10px;
+}
+span {
+    background-color: gray;
+    
+}
+

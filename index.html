@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main-container">
+        <div class="content">
+            <button id="lps">LOOPS</button>
+            <button id="DOM">DOM</button>
+            <button class="btn">FUNCTIONS</button>
+            <button class="btn">EVENTS</button>
+            <button class="btn">CONDITIONAL STATEMENTS</button>
+        </div>
+    </div>
+    <div class="loops-wrapper">
+            <div id="Loops">
+                    <h1 id="loops">Loops</h1> <br>
+
+                    <h4>JavaScript <em>loops</em> are used to <strong>repeatedly run a block of code</strong> - until a certain condition is met.</h4>
+                    
+                    <p>There are several options to run a block of code, including: <br> 
+                        <ul> <br>
+                        <li><strong>While</strong></li>
+                        <li><strong>Do-While</strong></li>  
+                        <li><strong>For</strong></li> 
+                        <li><strong>For-In</strong></li>
+                        <li><strong>For-Of</strong></li></p>
+                        </ul> <br>
+
+                    <h2>While Loop</h2> <br>
+                    <p>var sum = 0; <br>
+                    var number = 1; <br>
+                    <strong>while</strong> (number &lt;= 5) { <br>
+                      sum = sum + number; <br>
+                      number++; <br>
+                    } <br>
+                    alert("Sum = " + sum); </p> <br>
+                    
+                    <h4>The condition is first evaluated. If true, the block of statements following the while statement is executed.</h4> <br>
+                    
+                    <h2>Do-While Loop</h2> <br>
+                    
+                    <p>var sum = 0; <br>
+                    var number = 1; <br>
+                    <strong>do</strong> { <br>
+                       sum += number; <br />
+                       number++; <br />
+                    } <strong>while</strong> (number &lt;= 10); <br>
+                    alert("Sum = " + sum);    </p> <br>
+                    
+                    <h4>The Do-While loop is executed <strong>at least once</strong> whereas the while loop may not execute at all.</h4> <br>
+                    
+                    <h2>For Loop</h2> <br>
+                    
+                    <p>var sum = 0; <br />
+                    <strong>for</strong> (var i = 1; i &lt;= 5; i++) { <br>
+                       sum = sum + i; <br />
+                    } <br>
+                    alert("Sum = " + sum);    </p> <br>
+                    
+                    <h4>In a For-Loop the following is called an iteration statement => (var i = 1; i &lt;= 50; i++)</h4> <br>
+                    
+                    <p>It consists of 3 parts: <br>
+                    1-Initializer <strong>(var i = 1;)</strong> <br>
+                    2-Test Condition <strong>(i &lt;= 50;)</strong> <br>
+                    3-Updater <strong>(i++)</strong></p> <br>
+                    
+                    <h2>For-In Loop</h2> <br>
+                    
+                    <p>var student = { name:"Bill", age: 25, degree: "Masters" }; <br>
+                    <strong>for</strong> (var item <strong>in</strong> student) { <br>
+                       alert(student[item]); <br>    // => "Bill", then 25, then "Masters" <br>
+                    }</p> <br>
+                    
+                    <h4>A For-In Loop iterates through the properties of an object <br>
+                     (and executes the loop's body once for each enumerable property of the object.)</h4> <br>
+                </div>
+    </div>
+    <div class="dom-wrapper">
+        <div id="DOMM">
+            <h1>Javascript DOMs</h1> 
+            <h3>The 'HTML DOM' is a standard for how to get, change, add, or delete HTML elements.</h3> 
+            <hr>
+            <h4>Ben S.</h4><br>
+            <h3>What is DOM?</h3> 
+            <p> The DOM (Document Object Model) is an interface that represents how your HTML and XML documents are read by the browser. <br>
+                 It allows a language (JavaScript) to manipulate, structure, and style your website. After the browser reads your HTML document, <br>
+                  it creates a representational tree called the Document Object Model and defines how that tree can be accessed.</p> <br>
+                <img src="img/DOM.jpeg" alt="none"> <br>
+                <br> <p> In the image above, we can see the representational tree and how it is created by the browser. <br> 
+                In this example, we have four important elements that you’re gonna see a lot:</p> <br>
+                <ol>
+                  <li> <b>Document</b> : It treats all the HTML documents.</li>
+                  <li> <b>Elements</b> : All the tags that are inside your HTML or XML turn into a DOM element.</li>
+                  <li> <b>Text</b>: All the tags’ content. </li>
+                  <li> <b>Attributes</b>: All the attributes from a specific HTML element. In the image, the attribute class=”hero” is an attribute from the <p> element. </li>
+                </ol> <br>
+                <p>By manipulating the DOM, you have infinite possibilities. You can create applications that update the data of the page without needing a refresh.
+                   Also, you can create applications that are customizable by the user and then change the layout of the page without a refresh. You can drag, move, and delete elements.</p>
+                  <br>
+                   <h1>DOM Methods</h1>
+                   <p>The HTML DOM can be accessed with JavaScript (and with other programming languages). In the DOM, all HTML elements are defined as objects. <br>
+                     The programming interface is the properties and methods of each object. A property is a value that you can get or set (like changing the content of an HTML element). A method is an action you can do (like add or deleting an HTML element).</p>
+                    <br>
+                    <p>The DOM has a lot of methods. They are the connection between our nodes (elements) and events. We are going to go over a few of the most important methods. <br>
+                       If you want to read about all of the methods click <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">here</a>. </p>
+                       <hr>
+                       <h4>Brecht</h4>
+                       <h1>Elements</h1>
+                       <p>If we would like to manipulate HTML elements, first we have to <b>find</b> them by:</p> <br>
+                       <ul>
+                         <li>ID</li>
+                         <li>tag name</li>
+                         <li>class name</li>
+                         <li>CSS selector(s)</li>
+                         <li>HTML Object Collections</li>
+                       </ul>
+                       <br>
+                       <h1>by ID</h1>
+                       <p>Most straightforward way of selecting elements inside the DOM. <br>
+                          Using the HTML 'ID'.</p>
+                          <p><span> var x = document.getElementById("element");</span></p>
+                          <p>Returns an <b>object</b>, if not found it returns null.</p>
+                          <p>ID's have to be <i>unique</i> however, because of the multiple features the 'ID'
+                            has within the document:</p>
+                            <ul>
+                              <li>As a style sheet selector.</li>
+                              <li>As a target anchor for hypertext links.</li>
+                              <li>As a means to reference a particular element from a script.</li>
+                              <li>As the name of a declared <b>OBJECT</b> element.</li>
+                              <li>For general purpose processing by user agents (e.g. for identifying fields when extracting data from HTML pages into a database, translating HTML documents into other formats, etc.).</li>
+                            </ul>
+                            <h1>by Tag name</h1>
+                            <p><b>Any HTML</b> tag can be used to address elements inside the DOM.</p>
+                            <span>var x = document.getElementsByTagName("p");</span>
+                            <p>Notice how it is "Element(s)" and not "Element".</p>
+                            <p>Small mistakes like these can result in a syntax error, with a lot of headache later on.</p> <br>
+                            <p>You can also get an element within a selected Element:</p>
+                            <span>var x = document.getElementById("main");</span> <br> <br>
+                            <span>var y = x.getElementsByTagName("p");</span>
+                            <p>(replacing the document with the ID x and selecting within the x to find another tag)</p>
+                            <h1>by Class name</h1>
+                            <p>Same thing as selecting by 'ID', class can be used to select all elements belonging to a particular class.</p>
+                            <span>var x = document.getElementsByClassName("intro");</span>
+                            <p>Element(<b>s</b>) NOT Element_ !</p>
+                            <p>In comparison to the 'ID' selector, the 'class' selector has less features within the DOM:</p>
+                            <ul>
+                              <li>As a style sheet selector (when an author wishes to assign style information to a set of elements).</li>
+                              <li>For general purpose processing by user agents.</li>
+                            </ul>
+                            <h1>by CSS selectors</h1>
+                            <p>For selecting elements that match a specified CSS selector you can use:</p>
+                            <span>document.querySelectorAll();</span> <br>
+                            <span>var x = document.querySelectorAll("p.intro");</span>
+                            <p>(selecting all the <i>p</i> with the <i>class</i> "intro")</p>
+                            <h1></h1>
+                            <p></p>
+                            <a href="https://www.w3schools.com/jsref/dom_obj_all.asp">A list of methods and properties you can use within the DOM to select elements</a>
+                            <br>
+                            <br>
+                            <br>
+                            <h1>HTML DOM</h1>
+                            <p>"The HTML DOM allows JavaScript to change the content of HTML elements."</p>
+                            <p>Dynamic changes can be made with:</p>
+                            <ul>
+                              <li> <span>document.write();</span>  <br>
+                                to write directly into the <b>output stream.</b> </li> <br>
+                              <li> <span>.innerHTML</span>  <br>
+                                to change the <b>content</b>  of an element, but beware. Any HTML inside the selected element will be overwritten !</li> <br>
+                              <li>you can change the attribute of an element by selecting it and overwriting it's property.</li>
+                            </ul>
+                            <img src="img/VB1.png" alt="pic">
+                            <p>(This example changes the value of the src attribute of an <i>img</i> element.)</p>
+                            <h1>DOM CSS</h1>
+                            <p>The DOM lets Javascript change the style of HTML elements.</p>
+                            <img src="img/VB2.png" alt="pic">
+                            <p>(This example changes the style of a <b>p</b> element)</p>
+                            <p>You can even use events to change HTML elements when:</p>
+                            <ul>
+                              <li>An element is clicked on. <br>
+                                  <span>(onclick)</span></li> <br>
+                              <li>The page has loaded. <br>
+                                  <span>(onload)</span> <br> <br>
+                              </li>
+                              <li>Input fields are changed. <br>
+                                  <span>(onchange)</span> <br> <br>
+                              </li>
+                            </ul>
+                            <a href="https://www.w3schools.com/js/exercise_js.asp?filename=exercise_js_dom_html1">Basic DOM exercises from W3schools, check these out !</a>
+                            <br>
+                            <br>
+                            <hr>
+                            <br>
+                            <h3>Birthe</h3>
+                            <H1>DOM Events</H1>
+                            <p> <b>(Short version. For a full version look at the events-topic of Xandra, Caroline and Ben.)</b> </p>
+                            <p>Events can include anything from a click to hovering a mouse over an element to a webpage loading or being refreshed. <br>
+                                The property name for event handlers always starts with ‘on’ and ends with the event appended afterwards.</p>
+                            <p>The most common event types:</p>
+                            <ul>
+                              <li>Mouse events (MouseEvent): <br>
+                                  mousedown, mouseup, click, dblclick, mousemove, mouseover, mousewheel, mouseout, contextmenu. <br>
+                                  -Clicking a button, hover over a link,...</li> <br>
+                              <li>Touch events (TouchEvent): <br>
+                                  touchstart, touchmove, touchend, touchcancel. <br>
+                                  -Anything touchable on mobile.</li> <br>
+                              <li>Keyboard events (KeyboardEvent): <br>
+                                  keydown, keypress, keyup. <br>
+                                  <a href="https://birthelambrechts.github.io/extra-s/1.drumkit/drum.html">-example</a></li> <br>
+                              <li>Form events: <br>
+                                  focus, blur, change, submit. <br>
+                                  -When a form is submitted ,when the element loses focus,...</li> <br>
+                              <li>window events: <br>
+                                  scroll, resize, onoffline, load, unload. <br>
+                                  -Script to be run when srolled, resized,... For example the offline dino game.</li> <br>
+                            </ul>
+                            <h1>DOM EventListener</h1>
+                            <p>We can tell our code to listen for an event to fire using the .addEventListener() method.</p>
+                            <img src="img/VB3.png" alt="pic">
+                            <p>To tell the code to stop listening for that event to fire, we can use the .removeEventListener() method.</p>
+                            <h1>DOM Navigation</h1>
+                            <p>With the HTML DOM, you can navigate the node tree using node relationships.</p>
+                            <p>Everything in an HTML document is a node.</p>
+                            <p>New nodes can be created, and all nodes can be modified or deleted.</p>
+                            <img src="img/VB4.gif" alt="pic">
+                            <p>Navigate up, down, and sideways in the DOM tree using JavaScript to access a child, parent or sibling element.</p>
+                            <h3>Accessing the Child Nodes</h3>
+                            <p>The <b>children</b> of a node are the nodes that are one level below it. Any nodes beyond one level of nesting are usually referred to as descendants.</p>
+                            <p>You can use the <span>firstChild</span> and <span>lastChild</span>  properties of the DOM node to access the first and last direct child node of a node. If the node doesn't have any child element, it returns <span>null</span>.</p>
+                            <img src="img/VB5.png" alt="pic">
+                            <p>This will print #text for the first console.log and SPAN for the second one. This is because the <span>nodeName</span> is a read-only property that returns the name of the current node as a string. For example, <br> <span>#text</span> for text node, <br> <span>#comment</span> for comment node, <br> <span>#document</span> for document node, and so on.</p>
+                            <p>To avoid the issue with <span>firstChild</span> and <span>lastChild</span> returning #text or #comment nodes, you could alternatively use the <span>firstElementChild</span> and <span>lastElementChild</span> properties to return only the first and last <i>element node.</i> </p>
+                            <img src="img/VB6.png" alt="pic">
+                            <p>Now this will print H1 for the first and P for the second one.</p>
+                            <h4>Accessing the Parent Nodes</h4>
+                            <p>The <b>parent</b> of any node is the node that is one level above it, or closer to the <span>document </span> in the DOM hierarchy.</p>
+                            <p>You can use the <span>parentNode</span> property to access the parent of the specified node in the DOM tree.
+                                The <span>parentNode</span> will always return <span>null</span> for document node, since it doesn't have a parent.
+                                If you want to get only element nodes you can use the <span>parentElement</span>, like this:</p>
+                              <img src="img/VB7.png" alt="pic">
+                          
+
+        </div>
+    </div>
+    <script>
+
+document.getElementById("lps").onclick=function(){
+
+var el = document.getElementById('Loops');
+if (el.style.display == '') {
+  el.style.display = 'none';
+}
+else{
+  el.style.display = '';
+}
+
+};
+
+document.getElementById("DOM").onclick=function(){
+
+var el = document.getElementById('DOMM');
+if (el.style.display == '') {
+  el.style.display = 'none';
+}
+else{
+  el.style.display = '';
+}
+
+};
+
+    </script>
+</body>
+</html>
