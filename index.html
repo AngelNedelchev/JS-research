@@ -8,13 +8,14 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="header"><h1>Samenvatting JS</h1></div> 
     <div id="main-container">
         <div class="content">
-            <button id="lps">LOOPS</button>
-            <button id="DOM">DOM</button>
-            <button class="btn">FUNCTIONS</button>
-            <button class="btn">EVENTS</button>
-            <button class="btn">CONDITIONAL STATEMENTS</button>
+            <button id="lps" class="button" >LOOPS</button>
+            <button id="DOM" class="button">DOM</button>
+            <button id="fnc" class="button">FUNCTIONS</button>
+            <button id="evnt" class="button">EVENTS</button>
+            <button id="cnd" class="button">CONDITIONAL STATEMENTS</button>
         </div>
     </div>
     <div class="loops-wrapper">
@@ -243,20 +244,282 @@
                                 The <span>parentNode</span> will always return <span>null</span> for document node, since it doesn't have a parent.
                                 If you want to get only element nodes you can use the <span>parentElement</span>, like this:</p>
                               <img src="img/VB7.png" alt="pic">
-                          
+                              <h3>Accessing the Siblings Nodes</h3>
+                            <p>The&nbsp;<strong>siblings</strong>&nbsp;of a node are any node on the same tree level in the DOM.<br />Siblings do not have to be the same type of node. Text, element, and comment nodes can all be siblings.</p>
+                            <p>You can use the&nbsp;<span></code>previousSibling</span>&nbsp;and&nbsp;<span>nextSibling</span>&nbsp;properties to access the previous and next node in the DOM tree. Here's an example:</p>
+                              <img src="img/VB8.png" alt="pic">
+                              <p>Alternatively, you can use the&nbsp;<span>previousElementSibling</span>&nbsp;and&nbsp;<span>nextElementSibling</span>&nbsp;to get the previous and next sibling element skipping any whitespace text nodes. All these properties returns&nbsp;<code>null</code>&nbsp;if there is no such sibling.</p>
+                            <p><a href="https://www.digitalocean.com/community/tutorials/how-to-traverse-the-dom" rel="nofollow">Great tutorial learning the navigation and accessing the DOM-elements</a></p>
+                            <br>
+                            <hr>
+                            <br>
+                            <h4>Jal</h4>
+                            <h2><a id="user-content-nodes" class="anchor" href="https://github.com/jalyurt/js-DOM-group-explanation#nodes" aria-hidden="true"></a>Nodes</h2>
+                            <p><strong>"Node"</strong>&nbsp;stands for&nbsp;<em>'HTML element'.</em><br /><em>Important:</em>&nbsp;To use a node, once it's been created, you must refer to an existing HTML element in order to link it to an existing location in the HTML itself.</p>
+                            <p>In the following steps we will add a&nbsp;<em>line of text</em>&nbsp;in JS to an existing HTML&nbsp;<code>&lt;div&gt;</code>:</p>
+                            <ul>
+                            <li>Step 1, we first will have to create a&nbsp;<code>&lt;p&gt;paragraph&lt;/p&gt;</code>&nbsp;for our&nbsp;<em>text</em>&nbsp;to be nested in.</li>
+                            <li>Step 2, will be the creation of the&nbsp;<em>text</em>&nbsp;itself.</li>
+                            <li>Step 3, after this we will link the&nbsp;<em>text</em>&nbsp;to our earlier created&nbsp;<code>&lt;p&gt;paragraph&lt;/p&gt;</code>.</li>
+                            <li>Step 4, is needed to refer to an existing&nbsp;<code>&lt;div&gt;HTML element&lt;/div&gt;</code>&nbsp;which we will need to place our earlier created&nbsp;<em>text</em>into.</li>
+                            <li>Step 5, finally, we will link our&nbsp;<code>&lt;p&gt;paragraph&lt;/p&gt;</code>-wrapped&nbsp;<em>text</em>&nbsp;into our desired&nbsp;<code>&lt;div&gt;HTML element&lt;/div&gt;</code>&nbsp;which we appointed in "Step 4".</li>
+                            </ul>
 
+                            <h4>Step 1, creating a <span>< p ></span> element:</h4>
+                            <span>let ourParagraph = document.createElement("p");</span>
+                            <h4>Step 2, creating our content <i>(text)</i>:</h4>
+                            <span>let ourText = document.createTextNode("This is text that will go into our paragraph.");</span>
+                            <h4>Step 3, linking our content (text) to our <span>< p ></span> element:</h4>
+                            <span>ourParagraph.appendChild(ourText);</span>
+                            <h4>Step 4, referring to an existing HTML <span>< div ></span> element:</h4>
+                            <span>let ourDesiredHTMLElement = document.getElementById("IdOfOurDiv");</span>
+                            <h4>Step 5, linking our created content (text) and element (< p >) to the already existing HTML element (< div >) referred to in Step 4:</h4>
+                            <span>ourDesiredHTMLElement.appendChild(ourParagraph);</span>
+                            <br> 
+                            <br>
+                            <hr>
+                            <br>
+                            <h3>Deleting an existing HTML element.</h3>
+                            <p><em>Important:</em>&nbsp;to remove an element, you need to know and refer to the parent of said element.</p>
+                            <p><em>In the following example we will delete the HTML element with</em>&nbsp;<code>id="ourChildParagraph"</code>.</p>
+                            <p><strong>HTML sample:</strong></p>
+                            <img src="img/VB9.png" alt="pic">
+                            <ul>
+                              <li>Step 1, as mentioned before, we need to first address the element's parent.</li>
+                              <li>Step 2, we will then refer to the child element we want to remove.</li>
+                              <li>Step 3, lastly we remove the child from its parent.</li>
+                              </ul>
+                              <ul>
+                                <li>
+                                <h4>Step 1, addressing the parent element:</h4>
+                                <div class="highlight highlight-source-js">
+                                <pre><span class="pl-k">let</span> ourParentElement <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">"</span>ourParentDiv<span class="pl-pds">"</span></span>);</pre>
+                                </div>
+                                <h4><a id="user-content-step-2-addressing-the-child-element-we-want-to-remove" class="anchor" href="https://github.com/jalyurt/js-DOM-group-explanation#step-2-addressing-the-child-element-we-want-to-remove" aria-hidden="true"></a>Step 2, addressing the child element we want to remove:</h4>
+                                <div class="highlight highlight-source-js">
+                                <pre><span class="pl-k">let</span> ourChildElement <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-s"><span class="pl-pds">"</span>ourChildParagraph<span class="pl-pds">"</span></span>);</pre>
+                                </div>
+                                <h4><a id="user-content-step-3-finally-we-remove-the-child-element" class="anchor" href="https://github.com/jalyurt/js-DOM-group-explanation#step-3-finally-we-remove-the-child-element" aria-hidden="true"></a>Step 3, finally, we remove the child element:</h4>
+                                <div class="highlight highlight-source-js">
+                                <pre><span class="pl-smi">ourParentElement</span>.<span class="pl-c1">removeChild</span>(ourChildElement);</pre>
+                                </div>
+                                </li>
+                                </ul>
+                                <img src="img/R1.png" alt="">
+                                <img src="img/R2.png" alt="">
+                                <img src="img/R3.png" alt="">
+</div>
         </div>
+        <div class="functions-wrapper">
+          <div id="functions">
+            <img src="img/F1.png" alt="">
+            <img src="img/F2.png" alt="">
+            <img src="img/F3.png" alt="">
+            <img src="img/F4.png" alt="">
+            <img src="img/F5.png" alt="">
+            <img src="img/F6.png" alt="">
+            <img src="img/F7.png" alt="">
+  
+  
+  
+          </div>
+        </div>
+        <div class="events-wrapper">
+          <div id="events">
+            <ul>
+              <li>
+              <h1>JavaScript Events (Xandra, Ben D. &amp; Caroline)</h1>
+              <p>Events are actions or occurrences that happen in the system you are programming, which the system tells you about so you can respond to them in some way if desired.</p>
+              <p>The system will fire a signal of some kind when an event occurs, and also provide a mechanism by which some kind of action can be automatically taken (e.g. some code running) when the event occurs.</p>
+              <p>For example, if the user clicks a button on a webpage, you might want to respond to that action by displaying an information box.</p>
+              <p>In the case of the Web, events are fired inside the browser window, and tend to be attached to a specific item that resides in it &mdash; this might be a single element, set of elements, the HTML document loaded in the current tab, or the entire browser window. There are a lot of different types of events that can occur, for example:</p>
+              <ul>
+              <li>The user clicking the mouse over a certain element or hovering the cursor over a certain element.</li>
+              <li>The user pressing a key on the keyboard.</li>
+              <li>The user resizing or closing the browser window.</li>
+              <li>A web page finishing loading.</li>
+              <li>A form being submitted.</li>
+              <li>A video being played, or paused, or finishing play.</li>
+              <li>An error occurring.</li>
+              </ul>
+              <p>Each available event has an event handler, which is a block of code (usually a user-defined JavaScript function) that will be run when the event fires. When such a block of code is defined to be run in response to an event firing, we say we are registering an event handler. Note that event handlers are sometimes called event listeners &mdash; they are pretty much interchangeable for our purposes, although strictly speaking, they work together. The listener listens out for the event happening, and the handler is the code that is run in response to it happening.</p>
+              <h2><a id="user-content-bubbling--capturing" class="anchor" href="https://github.com/BenDuwe/Events-research#bubbling--capturing" aria-hidden="true"></a>Bubbling &amp; capturing</h2>
+              <p>There are two ways of event propagation in the HTML DOM, bubbling and capturing. Event propagation is a way of defining the element order when an event occurs. So for example if you have a&nbsp;<code>&lt;p&gt;</code>&nbsp;element inside of a&nbsp;<code>&lt;div&gt;</code>&nbsp;element, and the user clicks on the&nbsp;<code>&lt;p&gt;</code>&nbsp;element, which element's "click" event should be handled first? Since you&rsquo;re technically clicking on the&nbsp;<code>&lt;div&gt;</code>&nbsp;element as well.</p>
+              <h3><a id="user-content-bubbling" class="anchor" href="https://github.com/BenDuwe/Events-research#bubbling" aria-hidden="true"></a>bubbling</h3>
+              <p>In&nbsp;<em>bubbling</em>&nbsp;the innermost element's event is handled first and then the outer: meaning the&nbsp;<code>&lt;p&gt;</code>&nbsp;element's click event is handled first, then the&nbsp;<code>&lt;div&gt;</code>&nbsp;element's click event.</p>
+              <h3><a id="user-content-capturing" class="anchor" href="https://github.com/BenDuwe/Events-research#capturing" aria-hidden="true"></a>capturing</h3>
+              <p>In&nbsp;<em>capturing</em>&nbsp;the outermost element's event is handled first and then the inner: meaning the&nbsp;<code>&lt;div&gt;</code>&nbsp;element's click event will be handled first, then the&nbsp;<code>&lt;p&gt;</code>&nbsp;element's click event.</p>
+              <p>By default the bubbling propagation will be used.</p>
+              <h2><a id="user-content-events" class="anchor" href="https://github.com/BenDuwe/Events-research#events" aria-hidden="true"></a>Events</h2>
+              <p><em>On this account a HTML/JavaScript-file has been added so you can practice with the different types of event listeners:&nbsp;<a href="https://github.com/mdn/learning-area/blob/master/javascript/building-blocks/events/random-color-eventhandlerproperty.html">HTML/Javascript-file</a></em></p>
+              <h3><a id="user-content-onclick" class="anchor" href="https://github.com/BenDuwe/Events-research#onclick" aria-hidden="true"></a>onclick</h3>
+              <p>The onclick event occurs when the user clicks on an element.</p>
+              <h3><a id="user-content-onfocus" class="anchor" href="https://github.com/BenDuwe/Events-research#onfocus" aria-hidden="true"></a>onfocus</h3>
+              <p>The changes will be made when the element is focused (try pressing tab to tab on to the button).</p>
+              <h3><a id="user-content-onblur" class="anchor" href="https://github.com/BenDuwe/Events-research#onblur" aria-hidden="true"></a>onblur</h3>
+              <p>The onblur event occurs when an object loses focus. The onblur event is the opposite of the onfocus event.</p>
+              <h3><a id="user-content-ondblclick" class="anchor" href="https://github.com/BenDuwe/Events-research#ondblclick" aria-hidden="true"></a>ondblclick</h3>
+              <p>The ondblclick event occurs when the user double-clicks on an element.</p>
+              <h3><a id="user-content-onkeydownonkeypressonkeyup" class="anchor" href="https://github.com/BenDuwe/Events-research#onkeydownonkeypressonkeyup" aria-hidden="true"></a>onkeydown/onkeypress/onkeyup</h3>
+              <p><strong>!</strong>&nbsp;Note that it doesn't work if you try to register this event handler on the button itself.</p>
+              <p>The order of events related to the onkey&hellip; :</p>
+              <ol>
+              <li>onkeydown</li>
+              <li>onkeypress</li>
+              <li>onkeyup</li>
+              </ol>
+              <h4><a id="user-content-onkeydown" class="anchor" href="https://github.com/BenDuwe/Events-research#onkeydown" aria-hidden="true"></a>onkeydown</h4>
+              <p>The onkeydown event occurs when the user is pressing a key (on the keyboard).</p>
+              <h4><a id="user-content-onkeypress" class="anchor" href="https://github.com/BenDuwe/Events-research#onkeypress" aria-hidden="true"></a>onkeypress</h4>
+              <p>The onkeypress event occurs when the user presses a key (on the keyboard).</p>
+              <p>Keypress refers to a general press (button down and then up), while keydown and keyup refer to just the key down and key up parts of the keystroke, respectively.</p>
+              <h4><a id="user-content-onkeyup" class="anchor" href="https://github.com/BenDuwe/Events-research#onkeyup" aria-hidden="true"></a>onkeyup</h4>
+              <p>The onkeyup event occurs when the user releases a key (on the keyboard).</p>
+              <h3><a id="user-content-oncopy" class="anchor" href="https://github.com/BenDuwe/Events-research#oncopy" aria-hidden="true"></a>oncopy</h3>
+              <p>The oncopy event occurs when the user copies the content of an element.</p>
+              <h3><a id="user-content-onchange" class="anchor" href="https://github.com/BenDuwe/Events-research#onchange" aria-hidden="true"></a>onchange</h3>
+              <p>The onchange event occurs when the value of an element has been changed.<br />For radiobuttons and checkboxes, the onchange event occurs when the checked state has been changed.<br />This event is similar to the oninput event. The difference is that the oninput event occurs immediately after the value of<br />an element has changed, while onchange occurs when the element loses focus, after the content has been changed. The other difference is that the onchange event also works on&nbsp;<code>&lt;select&gt;</code>&nbsp;elements.</p>
+              <h3><a id="user-content-ondrag" class="anchor" href="https://github.com/BenDuwe/Events-research#ondrag" aria-hidden="true"></a>ondrag</h3>
+              <p>The ondrag event occurs when an element or text selection is being dragged.</p>
+              <h3><a id="user-content-onsubmit" class="anchor" href="https://github.com/BenDuwe/Events-research#onsubmit" aria-hidden="true"></a>onsubmit</h3>
+              <p>The onsubmit event occurs when a form is submitted.</p>
+              <h3><a id="user-content-onmouse-events" class="anchor" href="https://github.com/BenDuwe/Events-research#onmouse-events" aria-hidden="true"></a>onmouse... events</h3>
+              <p>The order of events related to the onmouse... events (for the left/middle mouse button):</p>
+              <ol>
+              <li>onmousedown</li>
+              <li>onmouseup</li>
+              <li>onclick</li>
+              </ol>
+              <p>The order of events related to the onmouse... events (for the right mouse button):</p>
+              <ol>
+              <li>onmousedown</li>
+              <li>onmouseup</li>
+              <li>oncontextmenu</li>
+              </ol>
+              <h4><a id="user-content-onmousedown" class="anchor" href="https://github.com/BenDuwe/Events-research#onmousedown" aria-hidden="true"></a>onmousedown</h4>
+              <p>The onmousedown event occurs when a user presses a mouse button over an element.</p>
+              <h4><a id="user-content-onmouseup" class="anchor" href="https://github.com/BenDuwe/Events-research#onmouseup" aria-hidden="true"></a>onmouseup</h4>
+              <p>The onmouseup event occurs when a user releases a mouse button over an element.</p>
+              <h4><a id="user-content-onmouseover" class="anchor" href="https://github.com/BenDuwe/Events-research#onmouseover" aria-hidden="true"></a>onmouseover</h4>
+              <p>The onmouseover event occurs when the mouse pointer is moved onto an element, or onto one of its children.</p>
+              <p><strong>Tip</strong>: This event is often used together with the onmouseout event, which occurs when a user moves the mouse pointer out of an element.</p>
+              <h4><a id="user-content-onmouseout" class="anchor" href="https://github.com/BenDuwe/Events-research#onmouseout" aria-hidden="true"></a>onmouseout</h4>
+              <p>The onmouseout event occurs when the mouse pointer is moved out of an element, or out of one of its children.</p>
+              <h3><a id="user-content-oncontextmenu" class="anchor" href="https://github.com/BenDuwe/Events-research#oncontextmenu" aria-hidden="true"></a>oncontextmenu</h3>
+              <p>The oncontextmenu event occurs when the user right-clicks on an element to open the context menu.</p>
+              <p>! Although the oncontextmenu event is supported in all browsers, the contextmenu attribute is currently only supported in Firefox.</p>
+              <h3><a id="user-content-onload" class="anchor" href="https://github.com/BenDuwe/Events-research#onload" aria-hidden="true"></a>onload</h3>
+              <p>The onload event occurs when an object has been loaded.</p>
+              <p><em>onload</em>&nbsp;is most often used within the element to execute a script once a web page has completely loaded all content (including images, script files, CSS files, etc.).</p>
+              <p>The onload event can be used to check the visitor's browser type and browser version, and load the proper version of the web page based on the information.</p>
+              <p>The onload event can also be used to deal with cookies.</p>
+              <h3><a id="user-content-onloadeddata" class="anchor" href="https://github.com/BenDuwe/Events-research#onloadeddata" aria-hidden="true"></a>onloadeddata</h3>
+              <p>The onloadeddata event occurs when data for the current frame is loaded, but not enough data to play next frame of the specified audio/video. During the loading process of an audio/video, the following events occur, in this order:</p>
+              <ol>
+              <li>onloadstart</li>
+              <li>ondurationchange</li>
+              <li>onloadedmetadata</li>
+              <li>onloadeddata</li>
+              <li>onprogress</li>
+              <li>oncanplay</li>
+              <li>oncanplaythrough</li>
+              </ol>
+              <h3><a id="user-content-keycode" class="anchor" href="https://github.com/BenDuwe/Events-research#keycode" aria-hidden="true"></a>keyCode</h3>
+              <p>The keyCode property returns the Unicode character code of the key that triggered the onkeypress event, or the Unicode key code of the key that triggered the onkeydown or onkeyup event. The difference between the two code types:</p>
+              <ul>
+              <li>Character codes - A number which represents an ASCII character</li>
+              <li>Key codes - A number which represents an actual key on the keyboard These types do not always mean the same thing; for example, a lower case "w" and an upper case "W" have the same keyboard code, because the key that is pressed on the keyboard is the same (just "W" = the number "87"), but a different character code because the resulting character is different (either "w" or "W", which is "119" or "87").&nbsp;<strong>Tip:</strong>&nbsp;To find out if the user is pressing a printable key (e.g. "a" or "5"), it is recommended to use this property on the onkeypress event. To find out if the user is pressing a function key (e.g. "F1", "CAPS LOCK" or "Home") use the onkeydown or onkeyup event.</li>
+              </ul>
+              <p><strong>Note:</strong>&nbsp;In Firefox, the keyCode property does not work on the onkeypress event (will only return 0). For a cross-browser solution, use the which property together with keyCode</p>
+              <p><strong>!</strong>&nbsp;Note: The keyCode property does not work on the onkeypress event for non-printable, function keys (like CAPS LOCK, CTRL, ESC, F12, etc.).</p>
+              </li>
+              </ul>
+              <img src="img/E1.png" alt="">
+              <p><a href="https://developer.mozilla.org/en-US/docs/Web/Events" rel="nofollow">A list containing more of the possibilities, most with a short description of the event</a></p>
+              <h2><a id="user-content-coding-examples" class="anchor" href="https://github.com/BenDuwe/Events-research#coding-examples" aria-hidden="true"></a>Coding examples</h2>
+              <h3><a id="user-content-adding-an-onclick-event" class="anchor" href="https://github.com/BenDuwe/Events-research#adding-an-onclick-event" aria-hidden="true"></a>Adding an onclick event</h3>
+              <p>There are multiple ways to add eventListeners to HTML elements: A first method: Both the eventListener and function are written directly inside of the HTML-file:</p>
+              <img src="img/E2.png" alt="">
+              <img src="img/E3.png" alt="">
+              <h1>Sources:</h1>
+              <ul>
+              <li><a href="https://www.tutorialspoint.com/javascript/javascript_events" rel="nofollow">Tutorialpoint</a></li>
+              <li><a href="https://www.w3schools.com/js/js_events.asp" rel="nofollow">w3schools</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events" rel="nofollow">https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events</a></li>
+              </ul>
+          </div>
+        </div>
+        <div class="conditional-statements-wrapper">
+          <div id="conditional-statements">
+            <h1>Conditional Statements</h1>
+            <p>In this guide, we’ll be covering the following concepts:</p>
+            <ul>
+              <li> <span>if</span>, <span>else if</span>, and <span>else</span> statements </li>
+              <li>comparison operators</li>
+              <li>logical operators</li>
+              <li>truthy vs falsy values</li>
+              <li>the switch statement</li>
+            </ul>
+            <h2>The&nbsp;<code>if</code>&nbsp;Keyword</h2>
+            <p>We often perform a task based on a condition.
+               For example, if the weather is nice today,
+                then we will go outside. If the alarm clock rings,
+                 then we&rsquo;ll shut it off. If we&rsquo;re tired,
+                  then we&rsquo;ll go to sleep.</p>
+                  <img src="img/CS1.png" alt="">
+                  <p><a href="https://youtu.be/N4V0FZASK60" rel="nofollow">Here is a cool tutorial for y'all</a></p>
+                  <h2>Comparison Operators</h2>
+<ul>
+<li>less than:&nbsp;<code>&lt;</code></li>
+<li>greater than:&nbsp;<code>&gt;</code></li>
+<li>less than or equal to:&nbsp;<code>&lt;=</code></li>
+<li>greater than or equal to:&nbsp;<code>&gt;=</code></li>
+<li>is equal to:&nbsp;<code>===</code></li>
+<li>is&nbsp;<strong>not</strong>&nbsp;equal to:&nbsp;<code>!==</code></li>
+</ul>
+<h2><a id="user-content-logical-operators" class="anchor" href="https://github.com/wiktoriakaliszz/conditional-statements-recap/blob/master/statements.md#logical-operators" aria-hidden="true"></a>Logical Operators</h2>
+<ul>
+<li>the and operator&nbsp;<code>&amp;&amp;</code></li>
+<li>the or operator&nbsp;<code>||</code></li>
+<li>the not operator, otherwise known as the bang operator&nbsp;<code>!</code></li>
+</ul>
+<h2><a id="user-content-truthy-vs-falsy" class="anchor" href="https://github.com/wiktoriakaliszz/conditional-statements-recap/blob/master/statements.md#truthy-vs-falsy" aria-hidden="true"></a>Truthy vs Falsy</h2>
+<p>The following values are&nbsp;<strong>always falsy</strong>:</p>
+<ul>
+<li><code>false</code></li>
+<li><code>0</code></li>
+<li><code>' '</code>&nbsp;or&nbsp;<code>" "</code>&nbsp;(empty string)</li>
+<li><code>null</code></li>
+<li><code>undefined</code></li>
+<li><code>NaN</code>&nbsp;(not a number)</li>
+</ul>
+<p>Everything else is&nbsp;<strong>truthy</strong>. That includes:</p>
+<ul>
+<li><code>'0'</code>&nbsp;(a string containing a single zero)</li>
+<li><code>'false'</code>&nbsp;(a string containing the text &ldquo;false&rdquo;)</li>
+<li><code>[ ]</code>&nbsp;(an empty array)</li>
+<li><code>{ }</code>&nbsp;(an empty object)</li>
+<li><code>function(){}</code>&nbsp;(an empty function)</li>
+</ul>
+<p><a href="https://youtu.be/dQw4w9WgXcQ" rel="nofollow">Another one!</a></p>
+<img src="img/CS2.png" alt="">
+<img src="img/CS3.png" alt="">
+<p><a href="https://youtu.be/ZPpXJ3dk9gE" rel="nofollow">Another one!</a></p>
+<img src="img/CS4.png" alt="">
+<p><a href="https://youtu.be/UeXDAu7SdmY" rel="nofollow">The last one (for real)</a></p>
+          </div>
+        </div>
+
     </div>
     <script>
-
 document.getElementById("lps").onclick=function(){
 
 var el = document.getElementById('Loops');
-if (el.style.display == '') {
+if (el.style.display != 'none') {
   el.style.display = 'none';
 }
 else{
-  el.style.display = '';
+  el.style.display = 'block';
 }
 
 };
@@ -264,14 +527,56 @@ else{
 document.getElementById("DOM").onclick=function(){
 
 var el = document.getElementById('DOMM');
-if (el.style.display == '') {
+if (el.style.display == 'block') {
   el.style.display = 'none';
 }
 else{
-  el.style.display = '';
+  el.style.display = 'block';
 }
 
 };
+
+document.getElementById("fnc").onclick=function(){
+
+var el = document.getElementById('functions');
+if (el.style.display == 'block') {
+  el.style.display = 'none';
+}
+else{
+  el.style.display = 'block';
+}
+
+};
+document.getElementById("evnt").onclick=function(){
+
+var el = document.getElementById('events');
+if (el.style.display == 'block') {
+  el.style.display = 'none';
+}
+else{
+  el.style.display = 'block';
+}
+
+};
+document.getElementById("cnd").onclick=function(){
+
+var el = document.getElementById('conditional-statements');
+if (el.style.display == 'block') {
+  el.style.display = 'none';
+}
+else{
+  el.style.display = 'block';
+}
+
+};
+
+document.getElementById('Loops').style.display = "none";
+document.getElementById('DOMM').style.display = "none";
+document.getElementById('functions').style.display = "none";
+document.getElementById('events').style.display = "none";
+document.getElementById('conditional-statements').style.display = "none";
+
+
 
     </script>
 </body>
